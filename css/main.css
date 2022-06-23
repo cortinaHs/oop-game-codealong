@@ -12,14 +12,10 @@ body {
 
 #player {
     position: absolute;
-    width: 10vw;
-    height: 20vh;
     background-color: rgb(241, 173, 45);;
 }
 
 .obstacle {
     position: absolute;
-    width: 10vw;
-    height: 10vh;
     background-color: rgb(206, 7, 83);;
 }

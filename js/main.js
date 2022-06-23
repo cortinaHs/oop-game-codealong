@@ -22,8 +22,21 @@ class Game {
                 const newObstacle = new Obstacle();
                 this.obstacleArr.push(newObstacle);
             }    
-            
+
+            //detect collision
+            this.obstacleArr.forEach(obstacleInstance => {
+                
+                if(this.player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+                    this.player.positionX + this.player.width > obstacleInstance.positionX &&
+                    this.player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+                    this.player.height + this.player.positionY > obstacleInstance.positionY) {
+                        //collision detected !!
+                        console.log("collision detected !!");
+                    }
+            });
+
             this.time++;
+
         }, 50);
     }
 
@@ -43,6 +56,8 @@ class Player {
     constructor() {
         this.positionX = 50;
         this.positionY = 0;
+        this.height = 20;
+        this.width = 10;
         this.domElement = this.createDomElement();
         
     }
@@ -55,6 +70,8 @@ class Player {
         newElement.id = "player";
         newElement.style.left = this.positionX + "vw";
         newElement.style.bottom = this.positionY + "vh";
+        newElement.style.width = this.width + "vw";
+        newElement.style.height = this.height + "vh";
 
         // append to the dom
         const boardElm = document.getElementById("board");
@@ -79,6 +96,8 @@ class Obstacle {
     constructor() {
         this.positionX = Number(Math.random().toFixed(2)) * 100;
         this.positionY = 100;
+        this.width = 10;
+        this.height = 10;
 
         this.domElement = this.createDomElement();
     }
@@ -91,6 +110,8 @@ class Obstacle {
         newElement.className = "obstacle";
         newElement.style.left = this.positionX + "vw";
         newElement.style.bottom = this.positionY + "vh";
+        newElement.style.width = this.width + "vw";
+        newElement.style.height = this.height + "vh";
 
         // append to the dom
         const boardElm = document.getElementById("board"); //
