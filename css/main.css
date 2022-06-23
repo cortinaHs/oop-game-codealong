@@ -2,3 +2,24 @@ body {
     background-color: rgb(182, 234, 255
     )
 }
+
+#board {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255,145,163); 
+}
+
+#player {
+    position: absolute;
+    width: 10vw;
+    height: 20vh;
+    background-color: rgb(241, 173, 45);;
+}
+
+.obstacle {
+    position: absolute;
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(206, 7, 83);;
+}
